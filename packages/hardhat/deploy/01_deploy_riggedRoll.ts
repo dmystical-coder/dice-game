@@ -10,22 +10,21 @@ const deployRiggedRoll: DeployFunction = async function (hre: HardhatRuntimeEnvi
   const diceGame: DiceGame = await ethers.getContract("DiceGame");
   const diceGameAddress = await diceGame.getAddress();
 
-  // Uncomment to deploy RiggedRoll contract
-  // await deploy("RiggedRoll", {
-  //   from: deployer,
-  //   log: true,
-  //   args: [diceGameAddress],
-  //   autoMine: true,
-  // });
+  await deploy("RiggedRoll", {
+    from: deployer,
+    log: true,
+    args: [diceGameAddress],
+    autoMine: true,
+  });
 
-  // const riggedRoll: RiggedRoll = await ethers.getContract("RiggedRoll", deployer);
+  const riggedRoll: RiggedRoll = await ethers.getContract("RiggedRoll", deployer);
 
   // Please replace the text "Your Address" with your own address.
-  // try {
-  //   await riggedRoll.transferOwnership("Your Address");
-  // } catch (err) {
-  //   console.log(err);
-  // }
+  try {
+    await riggedRoll.transferOwnership("0xb9d1bD9cf095e44da50ac0f32503d8009A3858e1");
+  } catch (err) {
+    console.log(err);
+  }
 };
 
 export default deployRiggedRoll;
