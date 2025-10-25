@@ -131,7 +131,7 @@ describe("🚩 Challenge 3: 🎲 Dice Game", function () {
       expect(
         deployerPrevBalance < deployerCurrentBalance,
         "Error when expecting RiggedRoll balance to increase when calling withdraw",
-      ).to.true;
+      ).to.be.true;
     });
   });
 });
